@@ -1,0 +1,94 @@
+/* ============================================================
+   TOKENS — THE SINGLE SOURCE OF TRUTH
+   Nothing else in this codebase may declare a raw hex, px value,
+   font family, or animation duration. Change it here, it changes
+   everywhere.
+
+   VALUES BELOW ARE PLACEHOLDERS. Real palette + type scale are
+   decided in design-system step 3. The *structure* is fixed.
+   ============================================================ */
+
+:root {
+  /* --- Color: surfaces ------------------------------------- */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #fafafa;
+  --color-bg-inverse: #0a0a0a;
+  --color-surface: #ffffff;
+  --color-overlay: rgb(0 0 0 / 0.4);
+
+  /* --- Color: text ----------------------------------------- */
+  --color-text: #111111;
+  --color-text-muted: #6b6b6b;
+  --color-text-inverse: #fafafa;
+
+  /* --- Color: brand + accent ------------------------------- */
+  --color-brand: #111111;
+  --color-accent: #111111;
+
+  /* --- Color: lines ---------------------------------------- */
+  --color-line: rgb(0 0 0 / 0.08);
+  --color-line-strong: rgb(0 0 0 / 0.16);
+
+  /* --- Typography: families -------------------------------- */
+  --font-display: ui-serif, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* --- Typography: fluid scale ----------------------------- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.25rem, 1.6vw, 1.5rem);
+  --text-2xl: clamp(1.75rem, 2.6vw, 2.25rem);
+  --text-3xl: clamp(2.25rem, 4vw, 3.25rem);
+  --text-display: clamp(3rem, 8vw, 7rem);
+
+  /* --- Typography: mechanics ------------------------------- */
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.12em;
+  --leading-tight: 1.05;
+  --leading-snug: 1.25;
+  --leading-normal: 1.6;
+
+  /* --- Space (8px base, section rhythm at the top) --------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-section: clamp(6rem, 12vw, 12rem);
+
+  /* --- Layout --------------------------------------------- */
+  --width-content: 68rem;
+  --width-prose: 38rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  /* --- Radius --------------------------------------------- */
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 12px;
+
+  /* --- Motion (mirrored in motion.ts for GSAP) ------------ */
+  --duration-fast: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+  --duration-reveal: 1100ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- Elevation (diffuse only, never harsh) -------------- */
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.02), 0 8px 24px rgb(0 0 0 / 0.04);
+  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.03), 0 16px 48px rgb(0 0 0 / 0.06);
+
+  /* --- Z-index -------------------------------------------- */
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+}

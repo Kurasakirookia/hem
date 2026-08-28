@@ -1,0 +1,42 @@
+/* Maps tokens.css onto Tailwind utilities. Tailwind v4 reads @theme
+   directly, so there is no second copy of the palette in a JS config.
+   Adding a token here is what makes `bg-bg`, `text-muted`, `font-display`,
+   `py-section` exist as utilities. */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-inverse: var(--color-bg-inverse);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-muted: var(--color-text-muted);
+  --color-inverse: var(--color-text-inverse);
+  --color-brand: var(--color-brand);
+  --color-accent: var(--color-accent);
+  --color-line: var(--color-line);
+  --color-line-strong: var(--color-line-strong);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --text-display: var(--text-display);
+
+  --tracking-tight: var(--tracking-tight);
+  --tracking-wide: var(--tracking-wide);
+
+  --spacing-section: var(--space-section);
+  --spacing-gutter: var(--gutter);
+
+  --container-content: var(--width-content);
+  --container-prose: var(--width-prose);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
+
+  --ease-out: var(--ease-out);
+  --ease-in-out: var(--ease-in-out);
+}
