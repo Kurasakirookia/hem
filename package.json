@@ -1,0 +1,17 @@
+{
+  "name": "hem",
+  "private": true,
+  "description": "Root task runner. Holds no dependencies, so there is no node_modules here.",
+  "scripts": {
+    "dev": "pm2 start ecosystem.config.cjs",
+    "stop": "pm2 delete ecosystem.config.cjs",
+    "restart": "pm2 restart ecosystem.config.cjs",
+    "logs": "pm2 logs",
+    "status": "pm2 list",
+    "build": "pnpm -C frontend build",
+    "test": "pnpm -C frontend test && uv run --directory backend pytest",
+    "test:web": "pnpm -C frontend test",
+    "test:api": "uv run --directory backend pytest",
+    "e2e": "pnpm -C frontend exec playwright test"
+  }
+}
