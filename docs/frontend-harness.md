@@ -120,6 +120,31 @@ use `pnpm e2e:docker` from then on. Do not mix the pairs.
 The docker path has not been exercised on this machine yet, because the
 Playwright image is a multi-gigabyte pull. Expect the first run to be slow.
 
+### Baselines must never go stale
+
+A failing visual test means the page changed. It does not mean the page is
+wrong. There are two causes and the tool cannot tell them apart:
+
+1. Something broke by accident
+2. Something was improved on purpose and the baseline is now old
+
+**Rule: update the baseline in the same commit as the change that caused it.**
+Change a component deliberately, run `pnpm e2e:update`, and commit the new PNG
+with the code. The baseline is then always the last approved state, never a
+historical one. A stale baseline is a process failure, not a tool failure.
+
+**Rule: never update a baseline to make a test pass.** Accepting a new
+baseline means accepting a visual change, and that is a human decision.
+
+On a red visual test, the correct steps are:
+
+1. Read the diff image Playwright wrote into `frontend/test-results/`
+2. Say what actually moved, in specifics
+3. Ask whether it was intended
+
+Then, and only then, either fix the code or update the baseline. Guessing
+here means reverting someone's deliberate work to match an old picture.
+
 ## When to run which gate
 
 Gates should scale to blast radius. Running everything on a typo is waste.

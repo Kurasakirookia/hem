@@ -76,7 +76,7 @@ pnpm verify         # tokens, lint, typecheck, tests. the full gate.
 
 pnpm shot /         # screenshot a route or a URL at 3 viewports
 pnpm e2e            # playwright, including visual regression
-pnpm e2e:update     # accept current output as the new baseline
+pnpm e2e:update     # accept new baseline. only with human sign off.
 ```
 
 The first group wraps pm2. The second group does not, because build and test
