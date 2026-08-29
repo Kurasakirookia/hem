@@ -8,3 +8,15 @@ set -e
 echo "pre-commit: checking tokens and lint"
 node scripts/check-tokens.mjs
 pnpm -s -C frontend lint
+
+# Reminders, not gates. Visual checks stay manual on purpose, because
+# accepting a new baseline is a human decision.
+if git diff --cached --name-only | grep -qE 'frontend/src/(components|pages|design-system)/'; then
+  echo ""
+  echo "  UI changed. Next:"
+  echo "    pnpm e2e           see whether anything moved"
+  echo "    pnpm e2e:update    only if the change was intended, then commit the PNG"
+fi
+
+echo ""
+echo "  Before pushing: pnpm verify"
