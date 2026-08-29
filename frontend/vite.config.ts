@@ -9,6 +9,8 @@ export default defineConfig({
     alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
   },
   server: {
-    proxy: { '/api': 'http://localhost:8000' },
+    // Ports come from ecosystem.cjs; the fallbacks keep a bare `pnpm dev` working.
+    port: Number(process.env.WEB_PORT ?? 5174),
+    proxy: { '/api': `http://localhost:${process.env.API_PORT ?? 8001}` },
   },
 })

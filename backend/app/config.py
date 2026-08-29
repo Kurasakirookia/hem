@@ -8,8 +8,8 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    database_url: str = "postgresql+psycopg://localhost/hem"
-    cors_origins: list[str] = ["http://localhost:5173"]
+    database_url: str = "postgresql+psycopg://localhost:5432/hem"
+    cors_origins: list[str] = ["http://localhost:5174"]
     environment: str = "development"
 
 
