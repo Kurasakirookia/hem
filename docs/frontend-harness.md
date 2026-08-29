@@ -79,10 +79,18 @@ Add a component by appending to `COMPONENTS` in `src/pages/Inventory.tsx`.
 
 ## Gate 5: visual regression
 
+Commands come in pairs, one pair per environment. **Pick an environment and
+stay in it.** Generating a baseline in one and comparing in the other
+produces false diffs.
+
 ```bash
+# host, fast, this machine only
 pnpm e2e            run against the baselines
 pnpm e2e:update     accept current output as the new baseline
-pnpm baseline       regenerate baselines inside the Playwright Docker image
+
+# docker, slower, stable across machines and CI
+pnpm e2e:docker     run against the baselines
+pnpm baseline       accept current output as the new baseline
 ```
 
 Baselines live in `frontend/e2e/__snapshots__/` and **are committed**. They
@@ -99,11 +107,18 @@ cream passed unnoticed under it. The config now sets `threshold: 0.02` with
 absorbing antialiasing noise. Verified both ways: the cream change fails, the
 revert passes.
 
-**Baselines are platform specific.** Font rendering differs between Linux and
-macOS, so a baseline made on one fails on the other. Current baselines were
-generated on this Linux machine. Before CI or a second machine joins,
-regenerate them with `pnpm baseline`, which runs in the Playwright Docker
-image so the result is stable everywhere.
+**Baselines are platform specific.** Font rendering differs between
+environments, so a baseline made in one can fail in another. Current
+baselines were generated on the host, which is fine while this is a
+one machine project.
+
+Dockerising the app for deployment does not solve this. What solves it is
+generating and comparing in the same environment. When CI or a second machine
+joins, switch to the docker pair: run `pnpm baseline` once to regenerate, then
+use `pnpm e2e:docker` from then on. Do not mix the pairs.
+
+The docker path has not been exercised on this machine yet, because the
+Playwright image is a multi-gigabyte pull. Expect the first run to be slow.
 
 ## When to run which gate
 

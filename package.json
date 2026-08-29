@@ -19,6 +19,7 @@
     "shot": "node frontend/scripts/shot.mjs",
     "e2e": "pnpm -C frontend exec playwright test",
     "e2e:update": "pnpm -C frontend exec playwright test --update-snapshots",
-    "baseline": "docker run --rm -it --network host -v \"$PWD\":/w -w /w/frontend mcr.microsoft.com/playwright:v1.62.1-noble npx playwright test --update-snapshots"
+    "baseline": "docker run --rm --network host -v \"$PWD\":/w -w /w/frontend mcr.microsoft.com/playwright:v1.62.1-noble npx playwright test --update-snapshots",
+    "e2e:docker": "docker run --rm --network host -v \"$PWD\":/w -w /w/frontend mcr.microsoft.com/playwright:v1.62.1-noble npx playwright test"
   }
 }
