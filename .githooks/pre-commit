@@ -1,0 +1,10 @@
+#!/bin/sh
+# Fast gates only. Anything slow belongs in `pnpm verify`, not here, because a
+# slow hook gets bypassed with --no-verify and then protects nothing.
+#
+# Escape hatch for drafts: git commit --no-verify
+set -e
+
+echo "pre-commit: checking tokens and lint"
+node scripts/check-tokens.mjs
+pnpm -s -C frontend lint

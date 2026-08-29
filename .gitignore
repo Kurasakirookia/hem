@@ -10,3 +10,10 @@ __pycache__/
 *.tsbuildinfo
 logs/
 .pm2/
+.harness/
+design/refs/*.png
+design/refs/*.jpg
+design/refs/*.jpeg
+design/refs/*.webp
+frontend/test-results/
+frontend/playwright-report/
