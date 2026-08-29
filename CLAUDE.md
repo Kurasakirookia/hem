@@ -38,6 +38,7 @@ that kind of work. Do not work from memory.
 | [`architecture.md`](docs/architecture.md) | Creating any file or folder, or touching the backend | Folder layout, where new code goes, import direction, barrel files, content placement, API calls and endpoints, ports, auth, backend growth, portability |
 | [`naming-conventions.md`](docs/naming-conventions.md) | Naming any file, symbol, token, or table | File names, code casing, token names, backend names, routes |
 | [`design-system.md`](docs/design-system.md) | Writing any styling, color, type, or motion | Tokens as the single source, the banned-literals list, adding a token, motion, component conventions |
+| [`frontend-harness.md`](docs/frontend-harness.md) | Building any page or component from a reference | The screenshot loop, design references, the token gate, the inventory route, visual regression |
 | [`testing.md`](docs/testing.md) | Writing or changing tests | Test layers, coverage targets, what not to test |
 | [`engineering-principles.md`](docs/engineering-principles.md) | Adding a dependency, abstraction, or pattern | The ladder, standing bans, the dependency gate, sizing limits |
 
@@ -71,7 +72,11 @@ pnpm stop           # stop and remove
 
 pnpm build          # frontend production build
 pnpm test           # frontend and backend suites
-pnpm e2e            # playwright (not wired yet)
+pnpm verify         # tokens, lint, typecheck, tests. the full gate.
+
+pnpm shot /         # screenshot a route or a URL at 3 viewports
+pnpm e2e            # playwright, including visual regression
+pnpm e2e:update     # accept current output as the new baseline
 ```
 
 The first group wraps pm2. The second group does not, because build and test

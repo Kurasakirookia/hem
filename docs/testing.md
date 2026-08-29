@@ -17,8 +17,8 @@ Chasing line coverage on JSX produces brittle tests that break on every
 design change and protect nothing. On a design-led site the browser is the
 only honest assertion.
 
-Vitest is wired: `pnpm test` (once) or `pnpm test:watch`. Playwright is not
-installed yet.
+Everything runs from the repo root. `pnpm verify` is the full gate:
+token check, lint, typecheck, then both unit suites.
 
 ## Approach
 
