@@ -1,0 +1,25 @@
+/* Font loading. One @font-face per family. Files live in public/fonts,
+   with their licence beside them.
+
+   swap means text shows in the fallback immediately, then switches when the
+   real font arrives. Better than invisible text on a font-led site. */
+
+@font-face {
+  font-family: 'Dirtyline';
+  src: url('/fonts/dirtyline.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Variable font. One file covers weight 100 to 900, so `font-weight: 550`
+   is valid and there is only one request.
+   Licence forbids subsetting and format conversion, so this is the WOFF2
+   exactly as Fontshare ships it. Do not run it through a font tool. */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/switzer-variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

@@ -78,11 +78,51 @@ runtimes on one page cause jank.
 - 3D (`@react-three/fiber`) is lazy-loaded per route. It is ~600kb and must
   never land in the main bundle.
 
-## Typography and color
+## Typography
 
-To be filled in when the palette and fonts are decided. This section will
-carry the actual values, the reasoning behind them, and the pairings that are
-allowed.
+Three fonts, three jobs. Do not use one in another's place.
+
+| Token | Font | Used for |
+|---|---|---|
+| `--font-hero` | Dirtyline 36daysoftype | Hero headlines and the wordmark, nothing else |
+| `--font-display` | pending | Section headings |
+| `--font-sans` | pending, Switzer | Body and UI |
+| `--font-mono` | system mono | Metadata, labels, captions |
+
+Every font must allow **commercial web use**. This site advertises a
+business, so a personal-use licence does not apply. Keep the licence file
+beside the font in `public/fonts`. See the README there.
+
+### Writing hero copy in Dirtyline
+
+Dirtyline renders everything as capitals, but **the case you type picks the
+letterform**:
+
+| Typed | Renders as |
+|---|---|
+| `dirtyline` | plain block capitals, no decoration |
+| `DIRTYLINE` | decorative swash capitals throughout |
+| `dIRtY LiNE` | a mix, decoration only where a capital was typed |
+
+So hero copy is typed in deliberate mixed case, and the mixing is a design
+decision rather than a typo. Write it into `content/` exactly as it should
+render.
+
+Two rules follow:
+
+**Never apply `text-transform` to hero text.** `uppercase` would make every
+letter decorative and `lowercase` would flatten all of it. Either way the
+effect is destroyed.
+
+**Never let a copy edit silently normalise the case.** A well meaning fix
+from `wE mAKe EVenTs` to `We Make Events` changes the artwork.
+
+## Color
+
+To be filled in when the palette is decided. The skeleton phase runs on
+greys, blacks and whites only, so layout and hierarchy are judged without
+colour. Token names will not change when the real palette lands, only the
+values.
 
 ## Component conventions
 

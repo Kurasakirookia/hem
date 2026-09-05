@@ -75,6 +75,29 @@ export default function Inventory() {
         </div>
       </Section>
 
+      <Section title="Hero font: Dirtyline">
+        <p className="mb-4 max-w-prose text-muted">
+          Caps only font. The decorative forms appear on letters typed as
+          capitals, so hero copy is written in deliberate mixed case. Never
+          apply text-transform to it.
+        </p>
+        <div className="space-y-6">
+          {[
+            ['all caps', 'DIRTYLINE'],
+            ['mixed case', 'dIRtY LiNE'],
+            ['lowercase typed', 'dirtyline'],
+            ['sample headline', 'wE mAKe EVenTs'],
+          ].map(([label, text]) => (
+            <div key={label}>
+              <p className="font-mono text-xs text-muted">{label}</p>
+              <p style={{ fontFamily: 'var(--font-hero)' }} className="text-3xl">
+                {text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section title="Type scale">
         <div className="space-y-3">
           {TYPE.map((name) => (

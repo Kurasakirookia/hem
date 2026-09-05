@@ -29,9 +29,24 @@
   --color-line: rgb(0 0 0 / 0.08);
   --color-line-strong: rgb(0 0 0 / 0.16);
 
-  /* --- Typography: families -------------------------------- */
+  /* --- Typography: families --------------------------------
+     Three roles, three fonts. Do not mix them up.
+
+     --font-hero     Dirtyline. Hero headlines and the wordmark ONLY.
+                     Everything renders as capitals, but CASE PICKS THE
+                     SHAPE: lowercase gives the plain block form, uppercase
+                     gives the decorative swash form. So hero copy is typed
+                     in deliberate mixed case to choose which letters get
+                     the flourish, for example "dIRtY LiNE". Never apply
+                     text-transform, it would destroy the effect.
+                     See docs/design-system.md.
+     --font-display  Section headings. PENDING: Wagon was personal use
+                     only, so a commercial-safe replacement is needed.
+     --font-sans     Switzer. Body and UI. Variable, weight 100 to 900.
+     --font-mono     Metadata, labels, captions.                        */
+  --font-hero: 'Dirtyline', ui-sans-serif, system-ui, sans-serif;
   --font-display: ui-serif, Georgia, serif;
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Switzer', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, monospace;
 
   /* --- Typography: fluid scale ----------------------------- */
