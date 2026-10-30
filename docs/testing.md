@@ -20,6 +20,32 @@ only honest assertion.
 Everything runs from the repo root. `pnpm verify` is the full gate:
 token check, lint, typecheck, then both unit suites.
 
+## CI
+
+`.github/workflows/ci.yml` runs on every push to `main` and every pull
+request. Three jobs run in parallel. Any failed step fails the run.
+
+| Job | Steps, in order | Catches |
+|---|---|---|
+| frontend | frozen install, token gate, oxlint, typecheck, Vitest with coverage, build, `pnpm audit` | Lockfile drift, literal design values, lint and type errors, untested logic, broken builds, vulnerable dependencies |
+| backend | frozen install, `ruff check`, `ruff format --check`, pytest with coverage, `pip-audit` | Lockfile drift, lint and format issues, broken endpoints, untested code, vulnerable dependencies |
+| e2e | Playwright smoke tests in the Playwright Docker image | Pages that fail to load or throw console errors |
+
+Coverage is enforced, not reported. Vitest's thresholds live in
+`vite.config.ts`, pytest's `fail_under` in `pyproject.toml`. Both are 80%.
+Raise a gap with a test, never by lowering the number.
+
+The audits fail on high and critical findings only.
+
+**The visual baseline does not run in CI yet.** See Gate 5 in
+[`frontend-harness.md`](frontend-harness.md) for why, and how to turn it on.
+
+Dependabot opens grouped update pull requests weekly for npm, uv and GitHub
+Actions. See `.github/dependabot.yml`.
+
+Locally, `pnpm verify` covers most of the frontend and backend jobs. It does
+not run coverage, the build or the audits.
+
 ## Approach
 
 Follow TDD for logic and endpoints:

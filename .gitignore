@@ -17,3 +17,8 @@ design/refs/*.jpeg
 design/refs/*.webp
 frontend/test-results/
 frontend/playwright-report/
+
+# Coverage and audit output
+.coverage
+frontend/coverage/
+backend/requirements-audit.txt

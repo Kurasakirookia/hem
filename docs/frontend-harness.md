@@ -120,6 +120,12 @@ use `pnpm e2e:docker` from then on. Do not mix the pairs.
 The docker path has not been exercised on this machine yet, because the
 Playwright image is a multi-gigabyte pull. Expect the first run to be slow.
 
+**CI skips the visual test until that switch happens.** CI runs Playwright in
+the docker image, so comparing against host baselines would fail on every
+run. The e2e job passes `--grep-invert "visual baseline"`. Once the
+baselines come from `pnpm baseline`, drop that flag in
+`.github/workflows/ci.yml`.
+
 ### Baselines must never go stale
 
 A failing visual test means the page changed. It does not mean the page is
