@@ -6,6 +6,19 @@
  * exactly as they should appear. See docs/design-system.md.
  */
 
+/** Links point at sections on this page until /events and /services exist. */
+export const nav = {
+  wordmark: 'HEM',
+  left: [
+    { id: 'n1', label: 'Our work', href: '#work' },
+    { id: 'n2', label: 'Services', href: '#services' },
+  ],
+  right: [
+    { id: 'n3', label: 'About', href: '#about' },
+    { id: 'n4', label: 'Get in touch', href: '#connect' },
+  ],
+} as const
+
 export const hero = {
   title: 'We Make the Night',
   caption: 'event design and production',
