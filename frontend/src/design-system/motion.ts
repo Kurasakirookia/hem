@@ -10,7 +10,11 @@ export const DURATION = {
 export const EASE = {
   out: 'power3.out',
   inOut: 'power2.inOut',
+  expo: 'expo.out',
 } as const
+
+/** How far a revealed element travels, in pixels. */
+export const REVEAL_DISTANCE = 40
 
 /** Shared ScrollTrigger start point so every reveal fires at the same
  *  place in the viewport. */

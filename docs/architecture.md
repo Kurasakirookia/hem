@@ -25,7 +25,7 @@ hem/
 │       │   ├── atoms/           # Button Text Heading Icon Input Divider
 │       │   ├── molecules/       # Card FormField NavLink EventTile
 │       │   ├── sections/        # Navbar Footer Hero EventGrid ServiceList
-│       │   └── motion/          # Reveal Marquee ScrollPin SmoothScroll
+│       │   └── motion/          # gsap SmoothScroll Reveal
 │       ├── pages/               # one file per route
 │       ├── content/             # copy + event data as typed TS
 │       ├── hooks/

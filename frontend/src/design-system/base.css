@@ -2,7 +2,7 @@
    only sets what the design system owns globally. */
 @layer base {
   html {
-    /* Lenis drives scrolling, so native smooth-scroll must stay off. */
+    /* ScrollSmoother drives scrolling, so native smooth-scroll stays off. */
     scroll-behavior: auto;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

@@ -12,6 +12,8 @@
   --color-inverse: var(--color-text-inverse);
   --color-brand: var(--color-brand);
   --color-accent: var(--color-accent);
+  --color-placeholder: var(--color-placeholder);
+  --color-placeholder-strong: var(--color-placeholder-strong);
   --color-line: var(--color-line);
   --color-line-strong: var(--color-line-strong);
 

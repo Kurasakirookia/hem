@@ -24,7 +24,11 @@ for (const route of ROUTES) {
 
 test('home matches its visual baseline', async ({ page }) => {
   // Arrange
-  await page.goto('/')
+  // motion=off freezes GSAP into its finished state. Playwright disables CSS
+  // animations on its own but cannot touch JavaScript-driven ones, so without
+  // this the screenshot lands on a random animation frame and the test is
+  // flaky. It also skips the first-visit loading screen.
+  await page.goto('/?motion=off')
   await page.waitForLoadState('networkidle')
 
   // Act + Assert

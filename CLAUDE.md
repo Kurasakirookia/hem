@@ -2,8 +2,8 @@
 
 A portfolio and services site for an event management group.
 
-The work is frontend led. The look is classical, premium, and editorial,
-carried by typography, illustration, and motion. The backend is small on
+The work is frontend led. The look is modern and premium, carried by
+typography, illustration, and motion. The backend is small on
 purpose: FastAPI and Postgres, used only where a server is actually needed.
 
 The site advertises and it proves, in equal measure. See Pages below.

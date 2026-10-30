@@ -66,15 +66,32 @@ propagation.
 
 ## Motion
 
-**GSAP + Lenis. No framer-motion.** It overlaps GSAP ~80%, and two animation
-runtimes on one page cause jank.
+**GSAP only. No framer-motion, no Lenis.** framer-motion overlaps GSAP by
+about 80%, and two animation runtimes on one page cause jank. Lenis was
+removed in favour of ScrollSmoother, which is built alongside ScrollTrigger,
+so pinned sections need no wiring between the two.
+
+GSAP 3.15 ships every plugin free: ScrollTrigger, ScrollSmoother, MorphSVG,
+SplitText, Physics2D, Flip and the rest. Register a plugin in
+`components/motion/gsap.ts` when something starts using it.
 
 - All durations and easings come from `motion.ts`. Never a literal in a tween.
-- Register GSAP plugins **once**, at app entry. Not per component.
+- Register GSAP plugins **once**, in `components/motion/gsap.ts`. Not per
+  component.
+- Wrap every tween in `gsap.context()` scoped to a ref, and `ctx.revert()` on
+  unmount. That kills the tweens and their ScrollTriggers together.
 - Always kill tweens and ScrollTriggers on unmount, or navigation leaks them.
 - `prefers-reduced-motion` is handled globally in `base.css`. JS-driven
   motion must check it too. Never animate through it.
-- Lenis owns scrolling. Do not set `scroll-behavior: smooth` anywhere.
+- ScrollSmoother owns scrolling. Do not set `scroll-behavior: smooth`
+  anywhere, and do not use `position: sticky` inside it. ScrollSmoother
+  transforms the content wrapper, and sticky resolves against the nearest
+  transformed ancestor, so it silently does nothing. Use ScrollTrigger `pin`.
+- Transforms on SVG children need `transform-box: view-box` plus
+  `transform-origin: center`, or GSAP and the browser disagree about the
+  origin and shapes fly off screen.
+- Every motion component must check `isMotionOff()` and render the finished
+  state when it returns true. That covers both reduced motion and screenshots.
 - 3D (`@react-three/fiber`) is lazy-loaded per route. It is ~600kb and must
   never land in the main bundle.
 

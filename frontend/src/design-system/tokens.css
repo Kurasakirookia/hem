@@ -25,6 +25,13 @@
   --color-brand: #111111;
   --color-accent: #111111;
 
+  /* --- Color: greybox placeholders -------------------------
+     Skeleton phase only. Image and vector areas render as flat grey so
+     layout is judged without colour. These get deleted, not recoloured,
+     when real artwork lands.                                            */
+  --color-placeholder: #d4d4d4;
+  --color-placeholder-strong: #a3a3a3;
+
   /* --- Color: lines ---------------------------------------- */
   --color-line: rgb(0 0 0 / 0.08);
   --color-line-strong: rgb(0 0 0 / 0.16);
@@ -83,6 +90,17 @@
   --width-content: 68rem;
   --width-prose: 38rem;
   --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  /* --- Stacked card section --------------------------------
+     How tall a stacked card is, and how much scrolling each card takes to
+     arrive. Step drives the pin length, so raising it slows the stack.   */
+  --stack-card-height: 68vh;
+  --stack-step: 90vh;
+
+  /* --- Aspect ratios --------------------------------------- */
+  --aspect-card-tall: 3 / 4;
+  --aspect-card-square: 1 / 1;
+  --aspect-media: 4 / 5;
 
   /* --- Radius --------------------------------------------- */
   --radius-none: 0px;
