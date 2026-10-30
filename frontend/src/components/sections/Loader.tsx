@@ -102,13 +102,13 @@ export function Loader({ onDone }: { onDone?: () => void }) {
         className="w-1/2 max-w-prose [&_*]:origin-center [&_*]:[transform-box:view-box]"
         aria-hidden="true"
       >
-        <g ref={blob} className="fill-line-strong">
+        <g ref={blob} className="fill-soft">
           {CLOVER.map((c) => (
             <circle key={`${c.cx}-${c.cy}`} cx={c.cx} cy={c.cy} r={c.r} />
           ))}
         </g>
-        <path ref={burst} d={BURST} className="fill-text" />
-        <path ref={shape} d={STAR_4} className="fill-placeholder" />
+        <path ref={burst} d={BURST} className="fill-brand" />
+        <path ref={shape} d={STAR_4} className="fill-accent" />
       </svg>
       <span className="sr-only">Loading</span>
     </div>

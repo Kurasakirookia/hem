@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Eyebrow } from '@/components/atoms/Eyebrow'
 import { Title } from '@/components/atoms/Title'
 import { EASE } from '@/design-system/motion'
 import { gsap, isMotionOff } from '@/components/motion/gsap'
@@ -61,6 +62,8 @@ export function Hero() {
   return (
     <div
       ref={root}
+      id="top"
+      data-tone="grid"
       data-testid="hero"
       className="relative flex min-h-svh w-full items-center justify-center overflow-hidden px-gutter"
     >
@@ -85,7 +88,7 @@ export function Hero() {
             {hero.title}
           </Title>
         </div>
-        <p className="mt-6 font-mono text-xs tracking-wide text-muted uppercase">{hero.caption}</p>
+        <Eyebrow className="mt-6 text-muted">{hero.caption}</Eyebrow>
       </div>
     </div>
   )

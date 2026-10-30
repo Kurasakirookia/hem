@@ -1,7 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { Container } from '@/components/atoms/Container'
+import { Eyebrow } from '@/components/atoms/Eyebrow'
 import { Placeholder } from '@/components/atoms/Placeholder'
 import { Section } from '@/components/atoms/Section'
+import { Title } from '@/components/atoms/Title'
 import { gsap, isMotionOff } from '@/components/motion/gsap'
 import { carousel } from '@/content/home'
 
@@ -54,16 +56,16 @@ export function CardCarousel() {
         <div ref={track} className="flex w-max gap-6">
           {cards.map((card, i) => (
             <article key={`${card.id}-${i}`} className="w-64 shrink-0 md:w-80">
-              <Placeholder label={card.label} aspect="card-tall" />
-              <p className="mt-4 font-mono text-xs tracking-wide text-muted uppercase">
+              <Placeholder label={card.label} aspect="card-tall" className="rounded-lg" />
+              <Title as="h3" size="sm" className="mt-4">
                 {card.label}
-              </p>
+              </Title>
             </article>
           ))}
         </div>
       </div>
       <Container className="mt-10">
-        <p className="font-mono text-xs tracking-wide text-muted uppercase">Selected work</p>
+        <Eyebrow className="text-muted">Selected work</Eyebrow>
       </Container>
     </Section>
   )

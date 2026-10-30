@@ -1,6 +1,9 @@
 import { useEffect, useRef } from 'react'
+import { Button } from '@/components/atoms/Button'
 import { Container } from '@/components/atoms/Container'
+import { Edge } from '@/components/atoms/Edge'
 import { Section } from '@/components/atoms/Section'
+import { Tag } from '@/components/atoms/Tag'
 import { Title } from '@/components/atoms/Title'
 import { ScrollTrigger, gsap, isMotionOff } from '@/components/motion/gsap'
 import { stackedCards } from '@/content/home'
@@ -25,6 +28,9 @@ import { stackedCards } from '@/content/home'
  *
  * Each card is nudged down slightly more than the last, so the top edge of
  * the card underneath stays visible and the stack reads as a stack.
+ *
+ * Cards are cream tickets with punched holes, set on whatever tone the
+ * section sits in. Home puts this on maroon.
  */
 export function StackedCards() {
   const root = useRef<HTMLDivElement>(null)
@@ -54,18 +60,22 @@ export function StackedCards() {
           <div key={card.id} data-stack-card className="flex h-svh items-center">
             <Container className="w-full">
               <article
+                data-tone="cream"
                 style={{
                   height: 'var(--space-stack-card)',
                   marginTop: `calc(${i} * var(--space-8))`,
                 }}
-                className="flex flex-col justify-between border border-line bg-bg-subtle p-8 md:p-12"
+                className="flex flex-col border border-line-strong p-8 md:p-12"
               >
-                <span className="font-mono text-xs tracking-wide text-muted">{card.index}</span>
-                <div>
-                  <Title as="h3" size="md">
-                    {card.title}
-                  </Title>
-                  <p className="mt-4 max-w-prose text-lg text-muted">{card.body}</p>
+                <Edge variant="holes" className="text-brand" />
+                <div className="mt-8 flex flex-1 flex-col justify-between">
+                  <Tag className="self-start">{card.index}</Tag>
+                  <div>
+                    <Title as="h3" size="md">
+                      {card.title}
+                    </Title>
+                    <p className="mt-4 max-w-prose text-lg text-muted">{card.body}</p>
+                  </div>
                 </div>
               </article>
             </Container>
@@ -74,14 +84,8 @@ export function StackedCards() {
       </div>
 
       <Container>
-        <div className="mt-16 flex justify-center">
-          <button
-            type="button"
-            data-testid="know-more"
-            className="border border-text px-8 py-4 font-mono text-xs tracking-wide uppercase transition-colors hover:bg-text hover:text-inverse"
-          >
-            Know more
-          </button>
+        <div data-testid="know-more" className="mt-16 flex justify-center">
+          <Button variant="outline">Know more</Button>
         </div>
       </Container>
     </Section>

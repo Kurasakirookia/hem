@@ -28,7 +28,8 @@ the whole design, and every rule below protects it.
 | Swap heading font | `tokens.css` + drop the woff2 in `public/fonts/` |
 | Change button radius everywhere | `tokens.css` |
 | Change all scroll-reveal timing | `motion.ts` |
-| Restyle every card | `molecules/Card.tsx` |
+| Restyle every button | `atoms/Button.tsx` |
+| Make a band maroon | `tone="maroon"` on its `Section` |
 
 ## Tones
 
