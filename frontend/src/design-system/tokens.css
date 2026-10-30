@@ -29,8 +29,8 @@
   --color-accent: var(--color-periwinkle);
   --color-soft: var(--color-pink);
   --color-text-on-soft: var(--color-maroon);
-  /* Cherry blossom petals in the hero. Decorative, never text.          */
-  --color-petal: var(--color-blossom);
+  /* Pink leaves in the hero. Decorative, never text.                    */
+  --color-leaf: var(--color-blossom);
   --color-overlay: rgb(64 8 19 / 0.4);
 
   /* --- Color: greybox placeholders -------------------------

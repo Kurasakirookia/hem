@@ -15,14 +15,14 @@ export const EASE = {
   linear: 'none',
 } as const
 
-/** Hero cherry blossom petals, in seconds. Each petal falls for
- *  fallMin plus up to fallSpread, so no two land in step. */
-export const PETALS = {
+/** Hero leaves, in seconds. Each leaf falls for fallMin plus up to
+ *  fallSpread, so no two land in step. */
+export const LEAVES = {
   fadeIn: 0.4,
   fadeOut: 1.2,
   fallMin: 7,
   fallSpread: 4,
-  /** Up to this long before a petal first appears. */
+  /** Up to this long before a leaf first appears. */
   startSpread: 6,
   /** One half turn of the flutter. */
   flutter: 1.4,
