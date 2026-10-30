@@ -3,10 +3,9 @@
 The palette, type scale, spacing rhythm, and motion values live in
 `frontend/src/design-system/`. This document is the contract around them.
 
-> **Current status:** the token *structure* is final; the *values* are
-> placeholders. The real palette and fonts are being decided and will be
-> documented here. Build components against the token *names* now. They will
-> not change when the values land.
+The look follows [`design/refs/style-nectar.md`](../design/refs/style-nectar.md):
+maroon and cream, pink and periwinkle as small accents, thin maroon lines,
+flat with no shadows. Our layout is our own.
 
 ## How propagation works
 
@@ -30,6 +29,37 @@ the whole design, and every rule below protects it.
 | Change button radius everywhere | `tokens.css` |
 | Change all scroll-reveal timing | `motion.ts` |
 | Restyle every card | `molecules/Card.tsx` |
+
+## Tones
+
+Colors come in two layers in `tokens.css`:
+
+1. **Palette:** raw colors such as `--color-maroon` and `--color-pink`. They
+   are not mapped to Tailwind, so a component cannot reach them.
+2. **Semantic:** `--color-text`, `--color-brand`, `--color-line-strong` and
+   the rest. Components use only these.
+
+A **tone** repoints the semantic layer for everything inside it. Set it with
+`data-tone`, usually through `<Section tone="maroon">`.
+
+| Tone | Looks like |
+|---|---|
+| `cream` | The default. Maroon on cream. |
+| `grid` | Cream plus graph paper lines. |
+| `maroon` | Pink on maroon. Buttons, lines and frames flip to pink. |
+
+So a component never needs a "dark" variant. `<Button>` is maroon on cream
+and pink on maroon with no extra code. If a component looks wrong on a tone,
+fix the tone in `tokens.css`, not the component.
+
+`--color-soft`, `--color-accent` and `--color-text-on-soft` stay the same in
+every tone. `Tag` relies on that.
+
+## Edges
+
+The scallop, holes and checker strips between bands are pure CSS utilities in
+`patterns.css`, used through the `Edge` atom. They paint in `currentColor`, so
+a text color class picks their color. `--space-edge` sizes all three.
 
 ## The forbidden list
 
@@ -62,6 +92,7 @@ propagation.
 | `tokens.css` | Every value. The single source of truth. |
 | `theme.css` | The tokens → Tailwind utility mapping. No values of its own. |
 | `base.css` | Element defaults: body type, heading families, selection, focus ring, reduced-motion kill switch. |
+| `patterns.css` | Pure CSS pattern utilities: the three section edges. |
 | `motion.ts` | GSAP-side mirror of the motion tokens, in seconds. |
 
 ## Motion

@@ -9,23 +9,26 @@
    ============================================================ */
 
 :root {
-  /* --- Color: surfaces ------------------------------------- */
-  --color-bg: #fdf8f2;
-  --color-bg-subtle: #f8efe6;
-  --color-bg-inverse: #801026;
-  --color-surface: #fffbf6;
+  /* --- Color: palette --------------------------------------
+     Raw colors. Not mapped to Tailwind, so components cannot use them.
+     Only the semantic tokens and the tones below point at these.        */
+  --color-cream: #fdf8f2;
+  --color-cream-deep: #f8efe6;
+  --color-cream-light: #fffbf6;
+  --color-maroon: #801026;
+  --color-maroon-deep: #6e0d20;
+  --color-maroon-muted: #8c4554;
+  --color-pink: #f5d5da;
+  --color-pink-muted: #deaeb6;
+  --color-periwinkle: #c0c5fd;
+  --color-lavender: #dcdbf5;
+
+  /* --- Color: same in every tone ----------------------------
+     Periwinkle is 1.6:1 on cream. Never use it for text or focus.       */
+  --color-accent: var(--color-periwinkle);
+  --color-soft: var(--color-pink);
+  --color-text-on-soft: var(--color-maroon);
   --color-overlay: rgb(64 8 19 / 0.4);
-
-  /* --- Color: text ----------------------------------------- */
-  --color-text: #801026;
-  --color-text-muted: #8c4554;
-  --color-text-inverse: #f5d5da;
-
-  /* --- Color: brand + accent ------------------------------- */
-  /* Periwinkle is 1.6:1 on cream. Never use it for text or focus.    */
-  --color-brand: #801026;
-  --color-accent: #c0c5fd;
-  --color-soft: #f5d5da;
 
   /* --- Color: greybox placeholders -------------------------
      Skeleton phase only. Image and vector areas render as flat grey so
@@ -34,13 +37,14 @@
   --color-placeholder: #d4d4d4;
   --color-placeholder-strong: #a3a3a3;
 
-  /* --- Color: lines ---------------------------------------- */
-  --color-line: rgb(128 16 38 / 0.18);
-  --color-line-strong: #801026;
+  /* --- Graph paper, used by the grid tone ------------------ */
+  --color-grid-line: var(--color-lavender);
+  --space-grid: 1.75rem;
 
-  /* --- Graph paper background ------------------------------ */
-  --color-grid-line: #dcdbf5;
-  --grid-size: 1.75rem;
+  /* --- Decorative section edges (scallop, holes, checker) --
+     One size drives all three: scallop radius, hole radius, and the
+     checker square.                                                     */
+  --space-edge: 0.75rem;
 
   /* --- Typography: families --------------------------------
      Three roles, three fonts. Do not mix them up.
@@ -123,4 +127,42 @@
   --z-nav: 100;
   --z-overlay: 200;
   --z-modal: 300;
+}
+
+/* ============================================================
+   TONES
+   A tone repoints the semantic colors for everything inside it. Set it
+   with data-tone on any element, usually through Section's tone prop.
+   Components only use semantic colors, so they adapt with no extra code.
+   Cream is the default, so :root carries it too. base.css paints the
+   background and the graph paper.
+   ============================================================ */
+
+:root,
+[data-tone='cream'],
+[data-tone='grid'] {
+  --color-bg: var(--color-cream);
+  --color-bg-subtle: var(--color-cream-deep);
+  --color-bg-inverse: var(--color-maroon);
+  --color-surface: var(--color-cream-light);
+  --color-text: var(--color-maroon);
+  --color-text-muted: var(--color-maroon-muted);
+  --color-text-inverse: var(--color-pink);
+  --color-brand: var(--color-maroon);
+  --color-line: rgb(128 16 38 / 0.18);
+  --color-line-strong: var(--color-maroon);
+}
+
+/* Contrast: pink on maroon 7.6:1, muted pink on maroon 5.4:1. */
+[data-tone='maroon'] {
+  --color-bg: var(--color-maroon);
+  --color-bg-subtle: var(--color-maroon-deep);
+  --color-bg-inverse: var(--color-pink);
+  --color-surface: var(--color-cream);
+  --color-text: var(--color-pink);
+  --color-text-muted: var(--color-pink-muted);
+  --color-text-inverse: var(--color-maroon);
+  --color-brand: var(--color-pink);
+  --color-line: rgb(245 213 218 / 0.25);
+  --color-line-strong: var(--color-pink);
 }

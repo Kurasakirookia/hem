@@ -7,6 +7,12 @@
  *
  * Add a component by appending to COMPONENTS below.
  */
+import type { ReactNode } from 'react'
+import { Button } from '@/components/atoms/Button'
+import { Edge } from '@/components/atoms/Edge'
+import { Eyebrow } from '@/components/atoms/Eyebrow'
+import { Frame } from '@/components/atoms/Frame'
+import { Tag } from '@/components/atoms/Tag'
 
 const COLORS = [
   '--color-bg',
@@ -19,6 +25,7 @@ const COLORS = [
   '--color-brand',
   '--color-accent',
   '--color-soft',
+  '--color-text-on-soft',
   '--color-line',
   '--color-line-strong',
   '--color-grid-line',
@@ -46,10 +53,75 @@ const SPACE = [
 
 const RADIUS = ['--radius-none', '--radius-sm', '--radius-md', '--radius-lg', '--radius-pill']
 
-/** Components render here as they are built: [name, node]. */
-const COMPONENTS: [string, React.ReactNode][] = []
+/** Renders a sample once per tone, so every component is checked on both. */
+function OnTones({ children }: { children: ReactNode }) {
+  return (
+    <div className="grid gap-4 sm:grid-cols-2">
+      {(['cream', 'maroon'] as const).map((tone) => (
+        <div key={tone} data-tone={tone} className="flex flex-wrap items-start gap-4 p-6">
+          {children}
+        </div>
+      ))}
+    </div>
+  )
+}
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+/** Components render here as they are built. */
+const COMPONENTS: { name: string; node: ReactNode }[] = [
+  {
+    name: 'Section tones: cream, grid, maroon',
+    node: (
+      <div className="grid gap-4 sm:grid-cols-3">
+        {(['cream', 'grid', 'maroon'] as const).map((tone) => (
+          <div key={tone} data-tone={tone} className="border border-line p-6">
+            <Eyebrow>{tone}</Eyebrow>
+            <p className="mt-2 text-muted">Muted body text.</p>
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    name: 'Edge: scallop, holes, checker',
+    node: (
+      <div className="space-y-8">
+        <div>
+          <div className="h-8 bg-soft" />
+          <Edge variant="scallop" className="text-soft" />
+        </div>
+        <Edge variant="holes" className="text-brand" />
+        <Edge variant="checker" className="bg-soft text-brand" />
+      </div>
+    ),
+  },
+  {
+    name: 'Frame',
+    node: (
+      <OnTones>
+        <Frame>
+          <Tag>Today, Mar 3</Tag>
+          <p className="mt-3 text-muted">Outline follows the tone.</p>
+        </Frame>
+        <Frame tone="cream">
+          <p className="text-muted">tone=cream, for a card on maroon.</p>
+        </Frame>
+      </OnTones>
+    ),
+  },
+  { name: 'Eyebrow', node: <OnTones><Eyebrow>Where to find us</Eyebrow></OnTones> },
+  {
+    name: 'Button: solid, outline',
+    node: (
+      <OnTones>
+        <Button>Find us today</Button>
+        <Button variant="outline">Know more</Button>
+      </OnTones>
+    ),
+  },
+  { name: 'Tag', node: <OnTones><Tag>Today, Mar 3</Tag></OnTones> },
+]
+
+function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="border-t border-line py-8">
       <h2 className="mb-4 font-mono text-sm tracking-wide uppercase text-muted">{title}</h2>
@@ -142,7 +214,7 @@ export default function Inventory() {
           <p className="text-muted">None yet. Append to COMPONENTS in this file.</p>
         ) : (
           <div className="space-y-8">
-            {COMPONENTS.map(([name, node]) => (
+            {COMPONENTS.map(({ name, node }) => (
               <div key={name}>
                 <p className="mb-3 font-mono text-xs text-muted">{name}</p>
                 {node}

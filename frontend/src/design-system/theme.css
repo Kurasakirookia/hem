@@ -13,6 +13,7 @@
   --color-brand: var(--color-brand);
   --color-accent: var(--color-accent);
   --color-soft: var(--color-soft);
+  --color-on-soft: var(--color-text-on-soft);
   --color-grid-line: var(--color-grid-line);
   --color-placeholder: var(--color-placeholder);
   --color-placeholder-strong: var(--color-placeholder-strong);
@@ -39,6 +40,10 @@
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-pill: var(--radius-pill);
+
+  /* Bare `transition-colors` uses these, so every hover runs on tokens. */
+  --default-transition-duration: var(--duration-fast);
+  --default-transition-timing-function: var(--ease-out);
 
   --ease-out: var(--ease-out);
   --ease-in-out: var(--ease-in-out);

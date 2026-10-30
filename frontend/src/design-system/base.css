@@ -16,6 +16,20 @@
     line-height: var(--leading-normal);
   }
 
+  /* Tones repoint the colors in tokens.css. This paints them. */
+  [data-tone] {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  [data-tone='grid'] {
+    background-image:
+      linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+    background-size: var(--space-grid) var(--space-grid);
+    background-position: center top;
+  }
+
   h1, h2, h3 {
     font-family: var(--font-display);
     letter-spacing: var(--tracking-tight);

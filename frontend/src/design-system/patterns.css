@@ -1,0 +1,43 @@
+/* Decorative section edges, drawn in pure CSS. Used through the Edge atom.
+
+   All three paint in currentColor, so `text-soft` or `text-brand` on the
+   element picks the color. Transparent parts show whatever sits behind.
+   --space-edge in tokens.css sets the size of all three. */
+
+/* Half circles hanging down, like the bottom of an awning. */
+@utility edge-scallop {
+  height: var(--space-edge);
+  background-color: currentColor;
+  mask: radial-gradient(
+      circle at 50% 0,
+      black calc(var(--space-edge) - 0.5px),
+      transparent var(--space-edge)
+    )
+    0 0 / calc(var(--space-edge) * 2) var(--space-edge) repeat-x;
+}
+
+/* A row of evenly spaced dots, like the punched top of a ticket.
+   `round` fits a whole number of dots, so none is cut off at the ends. */
+@utility edge-holes {
+  height: calc(var(--space-edge) * 2);
+  background-image: radial-gradient(
+    circle,
+    currentColor calc(var(--space-edge) - 0.5px),
+    transparent var(--space-edge)
+  );
+  background-size: calc(var(--space-edge) * 3) 100%;
+  background-repeat: round no-repeat;
+}
+
+/* Two rows of squares. currentColor fills half; the background color of
+   the element, or what is behind it, fills the other half. */
+@utility edge-checker {
+  height: calc(var(--space-edge) * 2);
+  background-image: conic-gradient(
+    currentColor 25%,
+    transparent 0 50%,
+    currentColor 0 75%,
+    transparent 0
+  );
+  background-size: calc(var(--space-edge) * 2) calc(var(--space-edge) * 2);
+}
