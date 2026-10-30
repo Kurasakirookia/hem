@@ -18,8 +18,10 @@ const COLORS = [
   '--color-text-inverse',
   '--color-brand',
   '--color-accent',
+  '--color-soft',
   '--color-line',
   '--color-line-strong',
+  '--color-grid-line',
 ]
 
 const TYPE = [
@@ -42,7 +44,7 @@ const SPACE = [
   '--space-section',
 ]
 
-const RADIUS = ['--radius-none', '--radius-sm', '--radius-md', '--radius-lg']
+const RADIUS = ['--radius-none', '--radius-sm', '--radius-md', '--radius-lg', '--radius-pill']
 
 /** Components render here as they are built: [name, node]. */
 const COMPONENTS: [string, React.ReactNode][] = []

@@ -4,26 +4,28 @@
    font family, or animation duration. Change it here, it changes
    everywhere.
 
-   VALUES BELOW ARE PLACEHOLDERS. Real palette + type scale are
-   decided in design-system step 3. The *structure* is fixed.
+   Palette follows design/refs/style-nectar.md: maroon and cream,
+   with pink and periwinkle as small accents. Flat, no shadows.
    ============================================================ */
 
 :root {
   /* --- Color: surfaces ------------------------------------- */
-  --color-bg: #ffffff;
-  --color-bg-subtle: #fafafa;
-  --color-bg-inverse: #0a0a0a;
-  --color-surface: #ffffff;
-  --color-overlay: rgb(0 0 0 / 0.4);
+  --color-bg: #fdf8f2;
+  --color-bg-subtle: #f8efe6;
+  --color-bg-inverse: #801026;
+  --color-surface: #fffbf6;
+  --color-overlay: rgb(64 8 19 / 0.4);
 
   /* --- Color: text ----------------------------------------- */
-  --color-text: #111111;
-  --color-text-muted: #6b6b6b;
-  --color-text-inverse: #fafafa;
+  --color-text: #801026;
+  --color-text-muted: #8c4554;
+  --color-text-inverse: #f5d5da;
 
   /* --- Color: brand + accent ------------------------------- */
-  --color-brand: #111111;
-  --color-accent: #111111;
+  /* Periwinkle is 1.6:1 on cream. Never use it for text or focus.    */
+  --color-brand: #801026;
+  --color-accent: #c0c5fd;
+  --color-soft: #f5d5da;
 
   /* --- Color: greybox placeholders -------------------------
      Skeleton phase only. Image and vector areas render as flat grey so
@@ -33,8 +35,12 @@
   --color-placeholder-strong: #a3a3a3;
 
   /* --- Color: lines ---------------------------------------- */
-  --color-line: rgb(0 0 0 / 0.08);
-  --color-line-strong: rgb(0 0 0 / 0.16);
+  --color-line: rgb(128 16 38 / 0.18);
+  --color-line-strong: #801026;
+
+  /* --- Graph paper background ------------------------------ */
+  --color-grid-line: #dcdbf5;
+  --grid-size: 1.75rem;
 
   /* --- Typography: families --------------------------------
      Three roles, three fonts. Do not mix them up.
@@ -103,6 +109,7 @@
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-lg: 12px;
+  --radius-pill: 999px;
 
   /* --- Motion (mirrored in motion.ts for GSAP) ------------ */
   --duration-fast: 180ms;
@@ -111,10 +118,6 @@
   --duration-reveal: 1100ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-
-  /* --- Elevation (diffuse only, never harsh) -------------- */
-  --shadow-soft: 0 1px 2px rgb(0 0 0 / 0.02), 0 8px 24px rgb(0 0 0 / 0.04);
-  --shadow-lift: 0 2px 4px rgb(0 0 0 / 0.03), 0 16px 48px rgb(0 0 0 / 0.06);
 
   /* --- Z-index -------------------------------------------- */
   --z-nav: 100;

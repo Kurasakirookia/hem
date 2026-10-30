@@ -12,6 +12,8 @@
   --color-inverse: var(--color-text-inverse);
   --color-brand: var(--color-brand);
   --color-accent: var(--color-accent);
+  --color-soft: var(--color-soft);
+  --color-grid-line: var(--color-grid-line);
   --color-placeholder: var(--color-placeholder);
   --color-placeholder-strong: var(--color-placeholder-strong);
   --color-line: var(--color-line);
@@ -36,9 +38,7 @@
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
-
-  --shadow-soft: var(--shadow-soft);
-  --shadow-lift: var(--shadow-lift);
+  --radius-pill: var(--radius-pill);
 
   --ease-out: var(--ease-out);
   --ease-in-out: var(--ease-in-out);
