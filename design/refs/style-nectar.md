@@ -17,7 +17,7 @@ Not taken. Our layout stays.
 
 | Role in the reference | HEM token |
 |---|---|
-| Elegant serif titles ("Where to Find Us Today") | `--font-hero`, Orange Avenue. Already close. |
+| Elegant serif titles ("Where to Find Us Today") | `--font-hero`, Gilda Display. Close in contrast and weight. |
 | Tiny uppercase spaced labels ("CATCH US IF YOU CANDY!") | `--font-sans` + `--tracking-wide` + `--text-xs`. Replaces our mono captions. |
 | Body text, small sans | `--font-sans`, Switzer |
 | Giant chunky footer wordmark | Skipped for now |

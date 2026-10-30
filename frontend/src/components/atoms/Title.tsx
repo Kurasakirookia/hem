@@ -2,11 +2,10 @@ import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
 
 /**
- * Display heading in Orange Avenue.
+ * Display heading in Gilda Display.
  *
- * Copy arrives already cased from content/. This component must never apply
- * text-transform, because uppercase drops the lowercase ligatures.
- * See docs/design-system.md.
+ * Copy arrives already cased from content/, so this component never applies
+ * text-transform. See docs/design-system.md.
  */
 export function Title({
   children,

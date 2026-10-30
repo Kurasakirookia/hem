@@ -4,11 +4,10 @@
    swap means text shows in the fallback immediately, then switches when the
    real font arrives. Better than invisible text on a font-led site. */
 
-/* OTF as shipped. PoC only: this is the personal-use demo build. See the
-   README in public/fonts before launch. */
+/* Latin subset only, from Fontsource. Covers English copy. */
 @font-face {
-  font-family: 'Orange Avenue';
-  src: url('/fonts/orange-avenue.otf') format('opentype');
+  font-family: 'Gilda Display';
+  src: url('/fonts/gilda-display.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

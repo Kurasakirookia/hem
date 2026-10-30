@@ -2,7 +2,7 @@
  * Every word on the home page. Placeholder, but written as real copy rather
  * than lorem, because fake text of the wrong length hides layout problems.
  *
- * Titles and subtexts render in Orange Avenue. Write them in title case,
+ * Titles and subtexts render in Gilda Display. Write them in title case,
  * exactly as they should appear. See docs/design-system.md.
  */
 

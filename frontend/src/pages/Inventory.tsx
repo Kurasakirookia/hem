@@ -172,17 +172,17 @@ export default function Inventory() {
         </div>
       </Section>
 
-      <Section title="Hero font: Orange Avenue">
+      <Section title="Hero font: Gilda Display">
         <p className="mb-4 max-w-prose text-muted">
-          Display serif with built-in ligatures. Titles are written in title
-          case. Never apply uppercase, it drops the ligatures.
+          High contrast display serif. Titles are written in title case in
+          content/.
         </p>
         <div className="space-y-6">
           {[
             ['title case', 'We Make the Night'],
-            ['ligatures', 'the ff st ta th oo ca TH'],
-            ['all caps, avoid', 'WE MAKE THE NIGHT'],
-            ['lowercase', 'orange avenue'],
+            ['all caps', 'WE MAKE THE NIGHT'],
+            ['lowercase', 'gilda display'],
+            ['figures', '01 02 03 04'],
           ].map(([label, text]) => (
             <div key={label}>
               <p className="font-mono text-xs text-muted">{label}</p>
