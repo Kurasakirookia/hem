@@ -20,6 +20,7 @@
   --color-maroon-muted: #8c4554;
   --color-pink: #f5d5da;
   --color-pink-muted: #deaeb6;
+  --color-blossom: #eea3b5;
   --color-periwinkle: #c0c5fd;
   --color-lavender: #dcdbf5;
 
@@ -28,6 +29,8 @@
   --color-accent: var(--color-periwinkle);
   --color-soft: var(--color-pink);
   --color-text-on-soft: var(--color-maroon);
+  /* Cherry blossom petals in the hero. Decorative, never text.          */
+  --color-petal: var(--color-blossom);
   --color-overlay: rgb(64 8 19 / 0.4);
 
   /* --- Color: greybox placeholders -------------------------
