@@ -32,7 +32,8 @@ test('home matches its visual baseline', async ({ page }) => {
   await page.waitForLoadState('networkidle')
 
   // Act + Assert
-  // Baselines are platform specific. Regenerate with `pnpm baseline`, which
-  // runs in Docker so the result matches everywhere.
+  // Baselines are platform specific. Current ones come from the host pair:
+  // regenerate with `pnpm e2e:update`. Do not mix in `pnpm baseline`, the
+  // docker pair. See docs/frontend-harness.md.
   await expect(page).toHaveScreenshot('home.png', { fullPage: true })
 })
