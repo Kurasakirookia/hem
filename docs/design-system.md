@@ -61,6 +61,23 @@ The scallop, holes and checker strips between bands are pure CSS utilities in
 `patterns.css`, used through the `Edge` atom. They paint in `currentColor`, so
 a text color class picks their color. `--space-edge` sizes all three.
 
+## Icons
+
+Phosphor (`@phosphor-icons/react`). Defaults are set once in
+`design-system/icons.ts` and applied through `IconContext` in `App.tsx`.
+
+- **Never pass `color`.** Icons use `currentColor`, so they follow the text
+  and flip with the tone.
+- **Never pass `size`.** Icons are `1em`. Size them with a text class on the
+  parent, so they match the type scale.
+- **One weight site-wide**, set in `icons.ts`. Changing it there changes
+  every icon.
+- Import by name from `@phosphor-icons/react`. Tree-shaking keeps only the
+  icons used. Each costs about 1 KB gzipped, because it carries all six
+  weights.
+- Illustrated spot icons (the candy drawings in the reference) are artwork,
+  not library icons. They do not come from here.
+
 ## The forbidden list
 
 **In any file under `components/`, `pages/`, or `sections/`:**
@@ -94,6 +111,7 @@ propagation.
 | `base.css` | Element defaults: body type, heading families, selection, focus ring, reduced-motion kill switch. |
 | `patterns.css` | Pure CSS pattern utilities: the three section edges. |
 | `motion.ts` | GSAP-side mirror of the motion tokens, in seconds. |
+| `icons.ts` | Phosphor defaults: color, size, weight. |
 
 ## Motion
 

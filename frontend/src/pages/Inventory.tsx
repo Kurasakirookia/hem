@@ -8,6 +8,13 @@
  * Add a component by appending to COMPONENTS below.
  */
 import type { ReactNode } from 'react'
+import {
+  ArrowRight,
+  CalendarBlank,
+  InstagramLogo,
+  MapPin,
+  TiktokLogo,
+} from '@phosphor-icons/react'
 import { Button } from '@/components/atoms/Button'
 import { Edge } from '@/components/atoms/Edge'
 import { Eyebrow } from '@/components/atoms/Eyebrow'
@@ -119,6 +126,22 @@ const COMPONENTS: { name: string; node: ReactNode }[] = [
     ),
   },
   { name: 'Tag', node: <OnTones><Tag>Today, Mar 3</Tag></OnTones> },
+  {
+    name: 'Icons: Phosphor, defaults in design-system/icons.ts',
+    node: (
+      <OnTones>
+        <div className="flex gap-4 text-2xl">
+          <InstagramLogo />
+          <TiktokLogo />
+          <MapPin />
+          <CalendarBlank />
+        </div>
+        <Button>
+          Find us today <ArrowRight />
+        </Button>
+      </OnTones>
+    ),
+  },
 ]
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
