@@ -2,12 +2,11 @@ import type { ReactNode } from 'react'
 import { cn } from '@/lib/cn'
 
 /**
- * Display heading in Dirtyline.
+ * Display heading in Orange Avenue.
  *
- * Dirtyline renders everything as capitals, and the typed case picks the
- * letterform: lowercase gives the plain block form, uppercase gives the
- * decorative swash form. So copy arrives already cased from content/, and
- * this component must never apply text-transform. See docs/design-system.md.
+ * Copy arrives already cased from content/. This component must never apply
+ * text-transform, because uppercase drops the lowercase ligatures.
+ * See docs/design-system.md.
  */
 export function Title({
   children,

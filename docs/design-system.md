@@ -101,38 +101,28 @@ Three fonts, three jobs. Do not use one in another's place.
 
 | Token | Font | Used for |
 |---|---|---|
-| `--font-hero` | Dirtyline 36daysoftype | Hero headlines and the wordmark, nothing else |
-| `--font-display` | pending | Section headings |
-| `--font-sans` | pending, Switzer | Body and UI |
+| `--font-hero` | Orange Avenue | Every `Title`: hero, section titles, wordmark |
+| `--font-display` | pending | Not used yet |
+| `--font-sans` | Switzer | Body and UI |
 | `--font-mono` | system mono | Metadata, labels, captions |
 
 Every font must allow **commercial web use**. This site advertises a
 business, so a personal-use licence does not apply. Keep the licence file
 beside the font in `public/fonts`. See the README there.
 
-### Writing hero copy in Dirtyline
+**Exception:** Orange Avenue is the personal-use demo build, allowed for the
+PoC only. It blocks a public launch until the licence is bought. See
+`public/fonts/README.md`.
 
-Dirtyline renders everything as capitals, but **the case you type picks the
-letterform**:
+### Writing titles in Orange Avenue
 
-| Typed | Renders as |
-|---|---|
-| `dirtyline` | plain block capitals, no decoration |
-| `DIRTYLINE` | decorative swash capitals throughout |
-| `dIRtY LiNE` | a mix, decoration only where a capital was typed |
+Orange Avenue is a display serif with built-in ligatures (`th`, `ff`, `st`,
+`TH` and more). The browser applies them on its own.
 
-So hero copy is typed in deliberate mixed case, and the mixing is a design
-decision rather than a typo. Write it into `content/` exactly as it should
-render.
+Write titles in `content/` in title case, exactly as they should render.
 
-Two rules follow:
-
-**Never apply `text-transform` to hero text.** `uppercase` would make every
-letter decorative and `lowercase` would flatten all of it. Either way the
-effect is destroyed.
-
-**Never let a copy edit silently normalise the case.** A well meaning fix
-from `wE mAKe EVenTs` to `We Make Events` changes the artwork.
+**Never apply `text-transform: uppercase` to titles.** Almost every ligature
+is a lowercase pair, so all caps throws most of them away.
 
 ## Color
 

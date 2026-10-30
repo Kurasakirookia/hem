@@ -7,7 +7,7 @@ import { Reveal } from '@/components/motion/Reveal'
  * Centred title with a subtext under it. Introduces the section that follows,
  * so it sits directly above a continuation section with no bottom padding.
  *
- * Both lines are Dirtyline, so both arrive already cased from content/.
+ * Both lines are Title, so both arrive already cased from content/.
  */
 export function CenteredIntro({
   title,

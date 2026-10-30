@@ -75,18 +75,17 @@ export default function Inventory() {
         </div>
       </Section>
 
-      <Section title="Hero font: Dirtyline">
+      <Section title="Hero font: Orange Avenue">
         <p className="mb-4 max-w-prose text-muted">
-          Caps only font. The decorative forms appear on letters typed as
-          capitals, so hero copy is written in deliberate mixed case. Never
-          apply text-transform to it.
+          Display serif with built-in ligatures. Titles are written in title
+          case. Never apply uppercase, it drops the ligatures.
         </p>
         <div className="space-y-6">
           {[
-            ['all caps', 'DIRTYLINE'],
-            ['mixed case', 'dIRtY LiNE'],
-            ['lowercase typed', 'dirtyline'],
-            ['sample headline', 'wE mAKe EVenTs'],
+            ['title case', 'We Make the Night'],
+            ['ligatures', 'the ff st ta th oo ca TH'],
+            ['all caps, avoid', 'WE MAKE THE NIGHT'],
+            ['lowercase', 'orange avenue'],
           ].map(([label, text]) => (
             <div key={label}>
               <p className="font-mono text-xs text-muted">{label}</p>
