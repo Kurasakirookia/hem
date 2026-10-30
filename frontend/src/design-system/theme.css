@@ -25,6 +25,13 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
   --text-display: var(--text-display);
 
   --tracking-tight: var(--tracking-tight);

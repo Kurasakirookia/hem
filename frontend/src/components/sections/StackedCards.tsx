@@ -55,7 +55,7 @@ export function StackedCards() {
             <Container className="w-full">
               <article
                 style={{
-                  height: 'var(--stack-card-height)',
+                  height: 'var(--space-stack-card)',
                   marginTop: `calc(${i} * var(--space-8))`,
                 }}
                 className="flex flex-col justify-between border border-line bg-bg-subtle p-8 md:p-12"

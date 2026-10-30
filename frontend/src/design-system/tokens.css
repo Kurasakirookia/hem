@@ -97,11 +97,8 @@
   --width-prose: 38rem;
   --gutter: clamp(1.25rem, 5vw, 4rem);
 
-  /* --- Stacked card section --------------------------------
-     How tall a stacked card is, and how much scrolling each card takes to
-     arrive. Step drives the pin length, so raising it slows the stack.   */
-  --stack-card-height: 68vh;
-  --stack-step: 90vh;
+  /* --- Stacked card section: how tall each card is ---------- */
+  --space-stack-card: 68vh;
 
   /* --- Aspect ratios --------------------------------------- */
   --aspect-card-tall: 3 / 4;
