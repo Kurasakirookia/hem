@@ -31,6 +31,9 @@ request. Three jobs run in parallel. Any failed step fails the run.
 | backend | frozen install, `ruff check`, `ruff format --check`, pytest with coverage, `pip-audit` | Lockfile drift, lint and format issues, broken endpoints, untested code, vulnerable dependencies |
 | e2e | Playwright smoke tests in the Playwright Docker image | Pages that fail to load or throw console errors |
 
+On a push to `main`, a fourth job, `deploy`, runs once all three pass. See
+[`deployment.md`](deployment.md).
+
 Coverage is enforced, not reported. Vitest's thresholds live in
 `vite.config.ts`, pytest's `fail_under` in `pyproject.toml`. Both are 80%.
 Raise a gap with a test, never by lowering the number.

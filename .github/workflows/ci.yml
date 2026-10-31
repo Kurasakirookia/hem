@@ -17,7 +17,7 @@ permissions:
 
 env:
   PNPM_VERSION: 10.29.2
-  NODE_VERSION: 20
+  NODE_VERSION: 24
 
 jobs:
   frontend:
@@ -107,3 +107,37 @@ jobs:
           name: playwright-results
           path: frontend/test-results/
           retention-days: 7
+
+  # Main only, and only after all three jobs pass. See docs/deployment.md.
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [frontend, backend, e2e]
+    runs-on: ubuntu-latest
+    # Never cancel a deploy halfway because a newer push arrived.
+    concurrency:
+      group: deploy
+      cancel-in-progress: false
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm exec vite build
+      - name: Deploy to Cloudflare
+        run: pnpm exec wrangler deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: false

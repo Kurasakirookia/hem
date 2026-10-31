@@ -263,8 +263,9 @@ source of bloat in a project this size.
 
 ## Portability
 
-**Nothing is hosted and no platform has been chosen.** Do not add CI/CD, a
-deploy config, or platform-specific code.
+The frontend is hosted on Cloudflare. The backend is not hosted yet. See
+[`deployment.md`](deployment.md). Platform code stays in the deploy config
+and CI, never in app code.
 
 The rules that keep every option open:
 
@@ -275,6 +276,4 @@ The rules that keep every option open:
   Postgres is reached through SQLAlchemy, nothing else.
 - The frontend builds to static files with no server requirement.
 
-Hold this line and picking a host later is a config change, not a rewrite.
-When a platform is chosen, this section graduates to its own
-`docs/deployment.md`.
+Hold this line and changing host later is a config change, not a rewrite.

@@ -1,0 +1,11 @@
+// Cloudflare Workers, static assets only. No Worker code runs.
+// The deploy job in .github/workflows/ci.yml uses this. See docs/deployment.md.
+{
+  "name": "hem",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // Unknown paths serve index.html, so the router handles them.
+    "not_found_handling": "single-page-application"
+  }
+}

@@ -39,6 +39,7 @@ that kind of work. Do not work from memory.
 | [`naming-conventions.md`](docs/naming-conventions.md) | Naming any file, symbol, token, or table | File names, code casing, token names, backend names, routes |
 | [`design-system.md`](docs/design-system.md) | Writing any styling, color, type, or motion | Tokens as the single source, the banned-literals list, adding a token, motion, component conventions |
 | [`frontend-harness.md`](docs/frontend-harness.md) | Building any page or component from a reference | The screenshot loop, design references, the token gate, the inventory route, visual regression |
+| [`deployment.md`](docs/deployment.md) | Touching hosting, CI deploy, secrets, or the domain | Where each part runs, how a deploy happens, secrets, rollback |
 | [`testing.md`](docs/testing.md) | Writing or changing tests | Test layers, coverage targets, what not to test |
 | [`engineering-principles.md`](docs/engineering-principles.md) | Adding a dependency, abstraction, or pattern | The ladder, standing bans, the dependency gate, sizing limits |
 
