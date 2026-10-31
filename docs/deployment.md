@@ -4,7 +4,7 @@
 
 | Part | Host | Status |
 |---|---|---|
-| Frontend | Cloudflare Workers, static assets, free plan | Live as a preview at `hem.<subdomain>.workers.dev` |
+| Frontend | Cloudflare Workers, static assets, free plan | Live as a preview at https://hem.slv-events.workers.dev |
 | Backend | Google Cloud Run, Postgres on Neon | Not hosted yet |
 | Images | In the repo, served with the frontend | Move to Cloudflare R2 when the gallery grows |
 | Domain | none yet | Add when the site goes live |
